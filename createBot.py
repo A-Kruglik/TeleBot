@@ -7,4 +7,4 @@ storage = MemoryStorage()
 
 bot = Bot(token=os.getenv('TOKEN'))
 dp = Dispatcher(bot, storage=storage)
-chanal = '@first_test_1'
+chanal = 'Your chanal'
