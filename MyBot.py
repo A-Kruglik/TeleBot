@@ -8,12 +8,12 @@ async def on_startup(_):
     Data_Base.sql_start()
 
 
-from handlers import command, FSM, FSM_post_description, FSM_post_name, other
+from handlers import command, FSM, FSM_post_description, FSM_delete_post, other
 
 command.register_hadnlers_client(dp)
 FSM.register_hadnlers_FSM(dp)
 FSM_post_description.register_hadnlers_FSM_description(dp)
-FSM_post_name.register_hadnlers_FSM_name(dp)
+FSM_delete_post.register_hadnlers_FSM_delete_post(dp)
 other.register_hadnlers_other(dp)
 
 executor.start_polling(dp, skip_updates=True, on_startup=on_startup)

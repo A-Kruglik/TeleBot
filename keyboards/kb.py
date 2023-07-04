@@ -1,14 +1,16 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-b1 = KeyboardButton('/загрузить')
-b2 = KeyboardButton('/help')
+b1 = KeyboardButton('/help')
+b2 = KeyboardButton('/загрузить')
 b3 = KeyboardButton('/отмена')
 b4 = KeyboardButton('/список')
-b5 = KeyboardButton('/название')
-b6 = KeyboardButton('/статья')
-b7 = KeyboardButton('/удалить_пост')
+b5 = KeyboardButton('/статья')
+b6 = KeyboardButton('/удалить_пост')
+b7 = KeyboardButton('/start')
 b10 = KeyboardButton('/таблица')
 
-kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+kb_main = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+kb_post = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 
-kb.add(b2).row(b1, b3).add(b4).add(b5, b6).add(b7).add(b10)
+kb_main.add(b1).add(b4).add(b10)
+kb_post.add(b4).add(b2, b3).add(b5, b6).add(b7)

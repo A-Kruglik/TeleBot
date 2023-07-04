@@ -8,9 +8,9 @@ from keyboards import kb
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from createBot import chanal
 
-ikb1 = InlineKeyboardButton(text='Да', callback_data='da')
-ikb2 = InlineKeyboardButton(text='Нет', callback_data='no')
-inkb = InlineKeyboardMarkup(row_width=2).add(ikb1).add(ikb2)
+ikb1 = InlineKeyboardButton(text='Опубликовать в канал', callback_data='da')
+ikb2 = InlineKeyboardButton(text='Редактировать', callback_data='no')
+inkb = InlineKeyboardMarkup(row_width=1).add(ikb1).add(ikb2)
 
 
 class FSMadmin(StatesGroup):
@@ -114,12 +114,12 @@ async def da_call(callback: types.CallbackQuery):
         await callback.bot.send_message(chanal, b, parse_mode='html')
     else:
         await callback.bot.send_photo(chat_id=chanal, photo=a, caption=b, parse_mode='html')
-    await bot.send_message(chat_id, 'Сообщение в канале!')
+    await bot.send_message(chat_id, '<i>Сообщение в канале!</i>', parse_mode='html')
 
 
 @dp.callback_query_handler(text='no')
 async def net_call(callback: types.CallbackQuery):
-    await callback.bot.send_message(chat_id, 'Начни конструктор объявления заново!', reply_markup=kb)
+    await callback.bot.send_message(chat_id, '<i>Начни конструктор объявления заново!</i>', parse_mode='html')
 
 
 def register_hadnlers_FSM(dp: Dispatcher):

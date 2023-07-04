@@ -16,6 +16,7 @@ async def cm_start(message: types.Message):
 # @dp.message_handler(content_types=['text'], state=FSMadmin_description.number)
 async def load_description(message: types.Message, state: FSMContext):
     num_post = message
+    await Data_Base.sql_number_name(num_post)
     await Data_Base.sql_number_description(num_post)
     await state.finish()
 
