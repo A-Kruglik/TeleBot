@@ -47,6 +47,12 @@ async def sql_number_name(message):
             await bot.send_message(message.from_user.id, f'{el}')
 
 
+async def sql_number_img(message):
+    for name in cursor.execute(f""" SELECT image FROM Posts WHERE id = {message.text} """).fetchall():
+        for el in name:
+            await bot.send_message(message.from_user.id, f'{el}')
+
+
 async def sql_post_delete(message):
     cursor.execute(f""" DELETE FROM Posts WHERE id = {message.text} """)
     db.commit()
